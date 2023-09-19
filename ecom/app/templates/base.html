@@ -1,8 +1,9 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 
 <head>
-  <title>BNV</title>
+  <title>BNV | {% block title %} {% endblock %}</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,29 +11,27 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Bebas Neue' rel='stylesheet'>
+
 
 </head>
 
-<body>
+<body style="    font-family: 'Bebas Neue';">
   <header>
     <!-- place navbar here -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary container">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><b>BNV store</b></a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5 py-3 fixed-top">
+        <div class="container-fluid ">
+          <a class="navbar-brand " href="#"><b class="display-6">BNV store</b></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
+          <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: larger;">
+            <ul class="navbar-nav ms-auto mb-5 mb-lg-0">
+              <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Profile
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu bg-secondary">
                   <li><a class="dropdown-item" href="#">Action</a></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li><hr class="dropdown-divider"></li>
@@ -40,20 +39,32 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="#">Orders</a>
               </li>
-              <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+              <!-- <li class="nav-item">
+                <a class="nav-link " aria-disabled="true" href="#">Disabled</a>
+              </li> -->
+              <li class="nav-item"><form class="d-flex" role="search">
+              <input class="form-control me-1 bg-dark" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success me-3" type="submit">Search</button>
+            </form></li>
+            <li class="nav-item my-lg-0 my-2"><button class="btn btn-outline-secondary" type="submit">
+              <img src="{% static 'images/shopping-cart.png'%}" alt="" width="26" height="22">
+            </button>
+
+            </li>
+              
             </ul>
-            <button class="btn btn-outline-primary" type="submit">Cart</button>
+            
             
           </div>
         </div>
       </nav>
   </header>
   <main>
+    {% block carousel %}{% endblock%}
+
+    {% block content %} {% endblock %}
 
   </main>
   <footer>
