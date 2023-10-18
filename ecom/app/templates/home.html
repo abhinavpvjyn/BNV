@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Home{% endblock %} 
 {% block carousel %}
 <div id="carouselExampleAutoplaying" class="carousel slide " data-bs-ride="carousel"  >
     <div class="carousel-inner ">
       <div class="carousel-item active">
-        <img src="{% static 'images/XM4.jpg'%}" class="d-block w-100 " alt="...">
+        <img src="{% static 'images\Banner-headphone.jpg'%}" class="d-block w-100 " alt="...">
       </div>
       <div class="carousel-item">
-        <img src="{% static 'images/Sony-WH-1000XM4-4-of-10.jpg'%}" class="d-block w-100" alt="...">
+        <img src="{% static 'images/macbook air M1 banner.jpg'%}" class="d-block w-100" alt="...">
       </div>
       <!-- <div class="carousel-item">
         <img src="{% static 'images/20230822_121545.jpg'%}" class="d-block w-100" alt="...">
@@ -28,9 +28,79 @@
 {% endblock%}
 
 {% block content %} <body >
-    <div class="container">    
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, incidunt.</p>
+    <div class="container bg-dark text-success">  
+      <br><br><br>  
+      <h1 class="text-center">Electronics</h1><br><br>
+      <div class="row container">
+        <div class="col-md-4 " >
+          
+            <a href="{% url 'category' 'HP' %}" style="text-decoration: none;">
+              <div class="text-center">
+                <img src="{% static 'images/main/Headphone-main.jpg'%}" alt=""  width="300px"><br>
+                <p class="pt-3">Headphones</p>
+              </div>
+            </a>
+          
+        </div>
+        <div class="col-md-4" >
+          
+          <a href="{% url 'category' 'LT' %}" style="text-decoration: none;">
+            <div class="text-center">
+              <img src="{% static 'images/main/Laptop-main.jpg'%}" alt=""  width="300px"><br>
+              <p class="pt-3">Laptops</p>
+            </div>
+          </a>
+        
+      </div>
+      <div class="col-md-4" >
+          
+        <a href="{% url 'category' 'SP' %}" style="text-decoration: none;">
+          <div class="text-center">
+            <img src="{% static 'images/main/speaker-main.jpg'%}" alt=""  width="300px">
+            <p class="pt-3">Speakers</p>
+          </div>
+        </a>
+      
+    </div>
+
+      </div>
+      <br>
+      <div class="row container">
+        <div class="col-md-4" >
+          
+            <a href="{% url 'category' 'EB' %}" style="text-decoration: none;">
+              <div class="text-center">
+                <img src="{% static 'images/main/earbud-main.jpg'%}" alt=""  width="300px"><br>
+                <p class="pt-3">Earbuds</p>
+              </div>
+            </a>
+          
+        </div>
+        <div class="col-md-4" >
+          
+          <a href="{% url 'category' 'SM' %}" style="text-decoration: none;">
+            <div class="text-center">
+              <img src="{% static 'images/main/phone-main.jpg'%}" alt=""  width="300px"><br>
+              <p class="pt-3">Smartphones</p>
+            </div>
+          </a>
+        
+      </div>
+      <div class="col-md-4" >
+          
+        <a href="{% url 'category' 'SW' %}" style="text-decoration: none;">
+          <div class="text-center">
+            <img src="{% static 'images/main/watch-main.jpg'%}" alt=""  width="300px">
+            <p class="pt-3">Smart watches</p>
+          </div>
+        </a>
+      
+    </div>
+
+      </div>
+      </div>
+      </div>
 </div>
 </body>
     
-{% endblock %}
+{% endblock content %}

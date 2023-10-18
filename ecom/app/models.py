@@ -1,3 +1,30 @@
 from django.db import models
 
 # Create your models h
+
+from django.contrib.auth.models import AbstractUser
+
+class Users(AbstractUser):
+    usertype=models.CharField(max_length=20)
+    status=models.CharField(max_length=10)
+    
+CAT_CHOICES=(
+    ('HP','Headphones'),
+    ('LT','Laptops'),
+    ('SP','Speakers'),
+    ('SM','Smartphones'),
+    ('EB','Earbuds'),
+    ('SW','Smartwatches'),
+)
+    
+class Product(models.Model):
+    title=models.CharField(max_length=100)
+    selling_price=models.FloatField()
+    discounted_price=models.FloatField()
+    description=models.TextField()
+    composition=models.TextField(default='')
+    prodapp=models.TextField(default='')
+    category=models.CharField(choices=CAT_CHOICES,max_length=2)
+    product_img=models.ImageField(upload_to='product')
+    def __str__(self) :
+        return self.title
