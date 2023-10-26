@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Category{% endblock %} 
+{% block content %}
+<div class="container">
+    <div class="row flex justify-content-between">
+        <div class="col-lg-5 nt-5">
+            <img src="{{product.product_img.url}}" alt="" class="image col-xs-6 col-sm-12 col-lg-12 mt-5 text-sm-center  ">
+        </div>
+        <div class="col-lg-5 mt-5 " style="font-size:22px">
+            <h1 >{{product.title}}</h1>
+            <p>{{product.description}}</p>
+            <h4 >Rs.{{product.discounted_price}} /-</h4>
+            <small class="text-decoration-line-through text-muted"><del class="text-danger">Rs.{{product.selling_price}}</del></small>
+            <br><br>
+            <h3>Product Features</h3>
+            <p>{{product.composition}}</p>
+            <br>
+            <div class="buttons row flex">
+                <button type="submit" class="d-grid gap-2 btn btn-danger p-1 m-1 btn-lg text-decoration-none text-white">Add to Cart</button>
+                <div class="btn btn-dark p-1 m-1 btn-lg"><a href="#" class="text-decoration-none text-white">Buy Now</a></div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

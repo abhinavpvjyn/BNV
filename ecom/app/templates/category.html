@@ -7,7 +7,7 @@
     <div class="row">
         {% for prod in product %}
         <div class="col text-center mb-4">
-            <a href="#" class="btn">
+            <a href="{% url 'productdetail' prod.id %}" class="btn">
                 <div>
                     <img src="{{prod.product_img.url}}" alt="not found" height="300vh" >
                     <div class="fw-bold">{{prod.title}}</div>
