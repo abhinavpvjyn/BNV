@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect,HttpResponse
 from app.models import Users,Product
 from django.contrib.auth import authenticate,login,logout
 from django.views import View
+from . forms import CustomerRegistrationForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -20,6 +22,20 @@ class ProductDetails(View):
 
         return render(request,'productdetail.html',locals())
     
+    
+class CustomerRegistrationView(View):
+    def get(self,request):
+        form = CustomerRegistrationForm()
+        return render(request,'custreg.html',locals())
+    def post(self,request):
+        form=CustomerRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Sign up completed!")
+        else:
+            messages.errors(request,"invalid Inputs!!!")
+        return render(request,'custreg.html',locals())
+
 
 
 

@@ -7,6 +7,10 @@ urlpatterns = [
     path('',views.home),
     path('category/<slug:value>',views.CategoryView.as_view(),name="category"),
     path('productdetail/<int:pk>',views.ProductDetails.as_view(),name="productdetail"),
+    
+    path('Customerreg',views.CustomerRegistrationView.as_view(),name="customerregistraion"),
+    
+    
 
     path('reg',views.createuser),
     path('log',views.loginpanel),
