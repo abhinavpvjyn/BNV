@@ -1,12 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models h
 
-from django.contrib.auth.models import AbstractUser
+# from django.contrib.auth.models import AbstractUser
 
-class Users(AbstractUser):
-    usertype=models.CharField(max_length=20)
-    status=models.CharField(max_length=10)
+# class Users(AbstractUser):
+#     usertype=models.CharField(max_length=20)
+#     status=models.CharField(max_length=10)
     
 CAT_CHOICES=(
     ('HP','Headphones'),
@@ -28,3 +29,16 @@ class Product(models.Model):
     product_img=models.ImageField(upload_to='product')
     def __str__(self) :
         return self.title
+    
+    
+class Customer(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
+    locality = models.CharField(max_length=200)
+    city = models.CharField(max_length=50)
+    mobile = models.IntegerField(default=0)
+    zipcode = models.IntegerField()
+    state = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
