@@ -13,16 +13,16 @@
             <ul class="list-unstyled">
             </ul>
             <li class="d-grid"><a href="{% url 'profile' %}" class="btn ">Add a new address</a></li>
-            <li class="d-grid"><a href="{% url 'address' %}" class="btn btn-primary">Saved address</a></li>
+            <li class="d-grid"><a href="{% url 'address' %}" class="btn btn-secondary">Saved address</a></li>
         </div>
     
     
-    <div class="col-sm-8 offset-sm-1">
+    <div class="col-sm-8 offset-sm-1" >
         <div class="row">
             {% for ad in add %}
             <div class="col-sm-6">
                 <div class="card m-2">
-                    <div class="card-body">
+                    <div class="card-body" style="background-color: rgb(221,208,200);">
                         <h3>Address {{forloop.counter}}</h3>
                         <p>Name: {{ad.name}}</p>
                         <p>Locality: {{ad.locality}}</p>

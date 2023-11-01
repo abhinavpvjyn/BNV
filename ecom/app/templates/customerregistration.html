@@ -6,18 +6,18 @@
 {% block content %}
 <div class="container">
     <div class="row my-3">
-        <div class="col-sm-6 offset-sm-3">
-            <h3>Customer Registration</h3>
+        <div class="col-sm-6 offset-sm-3 my-5 text-center  " >
+            <h1>Customer Registration</h1>
             <hr>
 
 
-            <form action="" method="POST" novalidate class="shadow p-5">
+            <form action="" method="POST" novalidate class="shadow p-5" style="background-color: rgb(221,208,200);border-radius:10px">
                 {% csrf_token %}
                 {% for fm in form %}
                     {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
                     <br>
                 {% endfor %}
-                <input type="submit" value="submit" class="btn btn-primary"><br>
+                <br><input type="submit" value="submit" class="btn btn-dark"><br><br>
 
                 <div class="text-center text-primary fw-bold">
                     <small>Existing User ? <a href="{% url 'login' %}" class="text-danger">Login Now</a></small>

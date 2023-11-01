@@ -27,16 +27,17 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: larger;">
-            <ul class="navbar-nav ms-auto mb-5 mb-lg-0">
+           
+            <ul class="navbar-nav ms-auto mb-5 mb-lg-0"> {% if request.user.is_authenticated %}
               <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Profile
                 </a>
                 <ul class="dropdown-menu bg-secondary">
-                  <li><a class="dropdown-item" href="{% url 'custreg' %}">Sign up</a></li>
+                  <li><a class="dropdown-item" href="{% url 'address' %}">Manage addresses</a></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item" href="{% url 'logout' %}">Log out</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -54,8 +55,15 @@
             </button>
 
             </li>
-              
-            </ul>
+            {% else %}
+            <li class="nav-item mx-3">
+              <a href="{% url 'login' %}" class="nav-link ">Login</a>
+            </li>
+            <li class="nav-item ">
+              <a href="{% url 'custreg' %}" class="nav-link ">Register</a>
+            </li>
+            {% endif %}
+
             
             
           </div>

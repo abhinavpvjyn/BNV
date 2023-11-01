@@ -9,16 +9,16 @@
         <h3>Welcome <span class="text-capitalize">{{request.user}}</span></h3>
 
 
-        
+
     
         <div class="col-sm-2 border-end">
             <ul class="list-unstyled">
-                <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-primary">Add a new Address</a></li>
+                <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-secondary">Add a new Address</a></li>
                 <li class="d-grid"><a href="{% url 'address' %}" class="btn btn">Saved Address</a></li>
             </ul>
         </div>
 
-        <div class="col-sm-8 offset-sm-1">
+        <div class="col-sm-8 offset-sm-1" style="background-color: rgb(221,208,200);">
             <h1>Add new Address</h1>
             <form action="" method="POST">
                 {% csrf_token %}
@@ -27,7 +27,7 @@
                     <br>
                 {% endfor %}
                 <div class="col-12 mt-3">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-secondary">Submit</button>
                 </div>
                 
                 {% if form.non_field_errors %}

@@ -6,10 +6,10 @@
 {% block content %}
 <div class="container">
     <div class="row my-3">
-        <div class="col-sm-6 offset-sm-3">
-            <h3>Login</h3>
+        <div class="col-sm-6 offset-sm-3 my-5 text-center">
+            <h1>Login</h1>
             <hr>
-            <form action="" method="POST" novalidate class="shadow p-5">
+            <form action="" method="POST" novalidate class="shadow p-5" style="background-color: rgb(221,208,200);border-radius:10px">
                 {% csrf_token %}
                 {% for fm in form %}
                     {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
@@ -18,7 +18,7 @@
 
                 <small><a href="#">Forgot Password ?</a></small>
                 <br>
-                <input type="submit" value="Login" class="btn btn-primary mt-4" >
+                <input type="submit" value="Login" class="btn btn-dark mt-4" >
                 <div class="text-center text-primary fw-bold">
                     <small>New User ? <a href="{% url 'custreg' %}" class="text-danger">Create an Account</a></small>
                 </div>
