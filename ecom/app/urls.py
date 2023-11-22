@@ -14,8 +14,13 @@ urlpatterns = [
     path('accounts/login/',auth_view.LoginView.as_view(template_name='login.html',authentication_form=LoginForm),name='login'),
     path('profile/',views.ProfileView.as_view(),name='profile'),
     path('address/',views.address,name='address'),
-    path('logout',auth_view.LogoutView.as_view(next_page='login'),name='logout')
+    path('logout',auth_view.LogoutView.as_view(next_page='login'),name='logout'),
     
+    path('addcart',views.addcart,name='addcart'),
+    path('cart',views.showcart,name='cart'),
+    path('plus_cart',views.plus_cart),
+    path('minus_cart',views.minus_cart),
+    path('remove_cart',views.remove_cart),
 
     # path('reg',views.createuser),
     # path('log',views.loginpanel),
