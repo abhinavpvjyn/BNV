@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models h
 
 # from django.contrib.auth.models import AbstractUser
@@ -46,7 +47,7 @@ class Customer(models.Model):
 class Cart(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     product=models.ForeignKey(Product,on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
+    quantity = models.PositiveIntegerField(default=0)
     @property
     def total_cost(self):
         return self.quantity * self.product.discounted_price

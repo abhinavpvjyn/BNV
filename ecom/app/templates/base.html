@@ -47,10 +47,12 @@
               <!-- <li class="nav-item">
                 <a class="nav-link " aria-disabled="true" href="#">Disabled</a>
               </li> -->
-              <li class="nav-item"><form class="d-flex pt-1" role="search">
-              <input class="form-control me-1 bg-dark" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-secondary me-3" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-            </form></li>
+              <li class="nav-item">
+                <form class="d-flex pt-1" role="search" action="/search">
+                  <input class="form-control me-1 bg-dark" type="search" placeholder="Search" name="search" aria-label="Search">
+                  <button class="btn btn-secondary me-3" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+              </li>
             <li class="nav-item mx-2">
               <!-- <a href="" ><img src="{% static 'images/cartflip.svg '%}" alt="nne"></a> -->
               <a href="{% url 'cart' %}" class="nav-link "> <span class="badge bg-danger"></span> <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>

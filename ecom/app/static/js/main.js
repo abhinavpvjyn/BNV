@@ -1,3 +1,20 @@
+$('.add-cart').click(function(){
+    var id = $(this).attr("pid").toString();
+    // var em = this.parentNode.children[2] 
+    console.log("pid=",id)
+    $.ajax({
+        type:"GET",
+        url:"/add_cart",
+        data:{
+            prod_id:id
+        },
+        // success:function(data){
+        //     console.log(data.max)
+        //     document.getElementById("addcart").innerText=data.max
+            
+        // }
+    })
+})
 $('.plus-cart').click(function(){
     var id = $(this).attr("pid").toString();
     var em = this.parentNode.children[2] 

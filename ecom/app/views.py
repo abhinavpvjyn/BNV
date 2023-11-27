@@ -149,6 +149,24 @@ def remove_cart(request):
         }
         return JsonResponse(data)
         
+def add_cart(request):
+    if request.method=='GET':
+        prod_id=request.GET['prod_id']
+        print(prod_id)
+        product=Product.objects.get(id=prod_id)
+        print(product)
+        co,cr=Cart.objects.get_or_create(product=product,user=request.user)
+        if co.quantity<10:
+            co.quantity +=1
+            messages.success(request,"Address Saved successfully!")
+        
+            
+        co.save()
+        data={}
+        
+        return JsonResponse(data)
+        
+    
     
 
 

@@ -18,13 +18,18 @@
             <p>{{product.composition}}</p>
             <br>
             <div class="" >
-                <form action="/addcart" class="d-inline">
-                    <input type="hidden" name="prod_id" value="{{product.id}}">
-                    <button type="submit" class="btn btn-danger shadow px-5 py-2">Add to Cart</button>
-                </form>
+                
+                <button type="submit" class="add-cart btn btn-danger shadow px-5 py-2" pid="{{product.id}}"id="addcart">Add to Cart</button>
+                
                 <div class="btn btn-dark shadow px-5 py-2"><a href="#" class="text-decoration-none text-white">Buy Now</a></div>
             </div>
-            
+            {% if messages %}
+            {% for msg in messages %}
+                <div class="alert alert-{{msg.tags}}" role="alert">
+                    {{msg}}
+                </div>
+            {% endfor %}
+            {% endif %}
         </div>
     </div>
 </div>

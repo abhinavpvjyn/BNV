@@ -21,6 +21,7 @@ urlpatterns = [
     path('plus_cart',views.plus_cart),
     path('minus_cart',views.minus_cart),
     path('remove_cart',views.remove_cart),
+    path('add_cart',views.add_cart),
 
     # path('reg',views.createuser),
     # path('log',views.loginpanel),
