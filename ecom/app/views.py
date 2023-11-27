@@ -165,6 +165,11 @@ def add_cart(request):
         data={}
         
         return JsonResponse(data)
+    
+def search(request):
+    query=request.GET['search']
+    product=Product.objects.filter(Q(title__icontains=query))
+    return render(request,"search.html",locals())
         
     
     
