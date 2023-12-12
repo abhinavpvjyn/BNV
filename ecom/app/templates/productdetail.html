@@ -22,7 +22,13 @@
                 <button type="submit" class="add-cart btn btn-danger shadow px-5 py-2" pid="{{product.id}}"id="addcart">Add to Cart</button>
                 
                 <div class="btn btn-dark shadow px-5 py-2"><a href="#" class="text-decoration-none text-white">Buy Now</a></div>
+                {% if wish %}
+                    <a href="" pid={{product.id}} class="minus-wishlist btn mx-3"><i class="fa fa-heart fa-lg text-danger shadow" ></i></a>
+                {% else %}
+                    <a href="" pid={{product.id}} class="plus-wishlist btn mx-3"><i class="fa fa-heart fa-lg text-success shadow" ></i></a>
+                {% endif %}
             </div>
+            
             {% if messages %}
             {% for msg in messages %}
                 <div class="alert alert-{{msg.tags}}" role="alert">

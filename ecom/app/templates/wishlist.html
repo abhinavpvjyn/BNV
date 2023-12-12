@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Wishlist{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if wlist %}
+    
+    {% for i in wlist %}
+        <div class="row mt-5">
+            <div class="col-3">
+                <img src="{{i.product.product_img.url}}" alt="not found" class="card-img" >
+
+
+            </div> 
+            <div class="col-9 px-5">
+                <h1>{{i.product.title}}</h1>
+                <p>{{i.product.description}}</p>
+                <h3>{{i.product.discounted_price}}</h3>
+                <p>{{i.product.selling_price}}</p>
+                <b>{{i.product.composition}}</b><br><br>
+
+                <a href="" pid={{i.product.id}} class="delete-wishlist btn mx-3"><i class="fa fa-heart fa-lg text-danger shadow" ></i></a>
+                
+
+            </div>
+        </div>
+    {% endfor %}
+    {% else %}
+    <div class="container text-center m-5">
+        <h1>Your Wish list is Empty!!</h1><br>
+        <a href="{% url 'products' %}" class="btn btn-secondary">Browse products</a>
+
+    </div>
+
+    {% endif %}
+
+   
+</div>
+{% endblock content %}

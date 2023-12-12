@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.shortcuts import render,redirect,HttpResponse
-from app.models import Cart, Customer, Product
+from app.models import Cart, Customer, Product, Wishlist
 from django.contrib.auth import authenticate,login,logout
 from django.views import View
 from app.forms import CustomerRegistrationForm,CustomerProfileForm
@@ -21,6 +21,7 @@ class CategoryView(View):
 class ProductDetails(View):
     def get(self,request,pk):
         product=Product.objects.get(id=pk)
+        wish = Wishlist.objects.filter(Q(product=product) & Q(user=request.user))
 
         return render(request,'productdetail.html',locals())
     
@@ -141,13 +142,13 @@ def remove_cart(request):
             amount=amount + value
         totalamount=amount+40
         # print(prod_id)
-        data={
+        data1={
             'quantity':co.quantity,
             'amount':amount,
             'totalamount':totalamount
             
         }
-        return JsonResponse(data)
+        return JsonResponse(data1)
         
 def add_cart(request):
     if request.method=='GET':
@@ -170,7 +171,45 @@ def search(request):
     query=request.GET['search']
     product=Product.objects.filter(Q(title__icontains=query))
     return render(request,"search.html",locals())
+
+def all_products(request):
+    product=Product.objects.all()
+    return render(request,'allproducts.html',locals())
+def delete_address(request):
+    pass
+
+def plus_wishlist(request):
+    if request.method == 'GET':
+        prod_id = request.GET['prod_id']
+        product = Product.objects.get(id=prod_id)
+        user = request.user
+        Wishlist(user=user,product=product).save()
+        data = { 'message' : 'Added to wishlist',}
+        return JsonResponse(data)
         
+
+def minus_wishlist(request):
+    if request.method == 'GET':
+        prod_id = request.GET['prod_id']
+        product = Product.objects.get(id=prod_id)
+        user = request.user
+        Wishlist.objects.filter(user=user,product=product).delete()
+        data = { 'message' : 'Removed from wishlist',}
+        return JsonResponse(data)
+    
+def wishlist (request):
+    user = request.user
+    wlist = Wishlist.objects.filter(user=user)
+    return render(request,'wishlist.html',locals())
+
+def delWishlist(request):
+    prod_id = request.GET['prod_id']
+    product = Product.objects.get(id=prod_id)
+    user = request.user
+    Wishlist.objects.filter(user=user,product=product).delete()
+    data={}
+    return JsonResponse(data)
+    
     
     
 

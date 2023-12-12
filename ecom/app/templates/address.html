@@ -17,11 +17,11 @@
         </div>
     
     
-    <div class="col-sm-8 offset-sm-1" >
+    <div class="col-sm-8 offset-sm-1 text-center" >
         <div class="row">
             {% for ad in add %}
             <div class="col-sm-6">
-                <div class="card m-2">
+                <div class="card m-2 ">
                     <div class="card-body" style="background-color: rgb(221,208,200);">
                         <h3>Address {{forloop.counter}}</h3>
                         <p>Name: {{ad.name}}</p>
@@ -30,7 +30,7 @@
                         <p>City: {{ad.city}}</p>
                         <p>State: {{ad.state}}</p>
                         <p>Pincode: {{ad.zipcode}}</p>
-                        <!-- <p class="text-center"> <a href="#" type="button" class="btn btn-success">Update</a></p> -->
+                        <p class="text-center"> <a href="#" type="button" class="delete-address btn btn-danger" aid={{ad.id}}><i class="fa fa-trash" aria-hidden="true"></i></a></p>
                     </div>
                 </div>
             </div>

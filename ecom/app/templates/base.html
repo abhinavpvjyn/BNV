@@ -29,20 +29,25 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size: larger;">
            
-            <ul class="navbar-nav ms-auto mb-5 mb-lg-0"> {% if request.user.is_authenticated %}
-              <li class="nav-item dropdown ">
+            <ul class="navbar-nav ms-auto mb-5 mb-lg-0 "> 
+              
+              {% if request.user.is_authenticated %}
+
+              <li class="nav-item dropdown mx-3">
                 <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  {{user}}
+                  <i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user}}
                 </a>
-                <ul class="dropdown-menu bg-secondary">
-                  <li><a class="dropdown-item" href="{% url 'address' %}">Manage addresses</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                <ul class="dropdown-menu ">
+                  <li><a class="dropdown-item" href="{% url 'address' %}"><i class="fa fa-location-arrow" aria-hidden="true"></i> Manage addresses</a></li>
+                  <li><a class="dropdown-item" href="{% url 'wishlist' %}"><i class="fa fa-heart" aria-hidden="true"></i>  Wish list</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="fa fa-truck" aria-hidden="true"></i> Orders</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="{% url 'logout' %}">Log out</a></li>
+                  <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</a></li>
                 </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Orders</a>
+              
+              <li class="nav-item mx-3">
+                <a class="nav-link" href="{% url 'products' %}">Products</a>
               </li>
               <!-- <li class="nav-item">
                 <a class="nav-link " aria-disabled="true" href="#">Disabled</a>
@@ -55,15 +60,18 @@
               </li>
             <li class="nav-item mx-2">
               <!-- <a href="" ><img src="{% static 'images/cartflip.svg '%}" alt="nne"></a> -->
-              <a href="{% url 'cart' %}" class="nav-link "> <span class="badge bg-danger"></span> <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>
+              <a href="{% url 'cart' %}" class="nav-link "> <span class="badge bg-danger"></span> <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i> Cart</a>
             </li>
+
             {% else %}
+
             <li class="nav-item mx-3">
               <a href="{% url 'login' %}" class="nav-link ">Login</a>
             </li>
             <li class="nav-item ">
               <a href="{% url 'custreg' %}" class="nav-link ">Register</a>
             </li>
+            
             {% endif %}
 
             
